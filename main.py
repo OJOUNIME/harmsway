@@ -32,4 +32,15 @@ elif choice == "2":
             print("Error: Incorrect Pin.")
 elif choice == "3":
     print("Deposit")
-    
+    amount = int(input("Enter the amount you want to deposit: "))
+    if amount <= 0:
+        print("Error: Invalid deposit amount.")
+    else: 
+        Balance = Balance + amount
+        print("Deposit Successful!")
+        print(f"Amount Credited:  ₦{amount}")
+        print(f"Your new Balance: ₦{Balance}")
+elif choice == "4":
+    print("Thank You For Using Opay. Goodbye!")
+else:
+    print("Invalid Choice.")
