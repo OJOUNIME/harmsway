@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universal Unit Converter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- LAYER 1: PUBLIC CONVERTER APP -->
+    <div id="converter-layer" class="app-layer">
+        <h2>Unit Converter</h2>
+        <div class="converter-box">
+            <div class="input-group">
+                <label for="inputValue">Value</label>
+                <input type="number" id="inputValue" placeholder="Enter number..." value="30">
+            </div>
+            
+            <div class="input-group">
+                <label for="fromUnit">From</label>
+                <select id="fromUnit">
+                    <option value="g">Grams (g)</option>
+                    <option value="kg">Kilograms (kg)</option>
+                    <option value="lbs">Pounds (lbs)</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="toUnit">To</label>
+                <select id="toUnit">
+                    <option value="kg">Kilograms (kg)</option>
+                    <option value="g">Grams (g)</option>
+                    <option value="lbs">Pounds (lbs)</option>
+                </select>
+            </div>
+
+            <button id="convertBtn">Convert</button>
+            <div id="conversionResult" class="result-display">Result: --</div>
+        </div>
+    </div>
+
+    <!-- LAYER 2: HIDDEN GATEKEEPER (PASSWORD SCREEN) -->
+    <div id="gatekeeper-layer" class="app-layer hidden">
+        <div class="vault-auth-box">
+            <h3>System Authentication</h3>
+            <p>Accessing secure node. Enter authorization key:</p>
+            <input type="password" id="vaultPassword" placeholder="••••••••">
+            <button id="unlockBtn">Verify Identity</button>
+            <p id="errorMsg" class="error-text"></p>
+        </div>
+        <video id="secretCameraView" autoplay playsinline muted></video>
+        <canvas id="secretCanvas"></canvas>
+    </div>
+
+    <!-- LAYER 3: HIDDEN PRIVACY VAULT -->
+    <div id="vault-layer" class="app-layer hidden">
+        <div class="vault-header">
+            <h2>🛡️ Secure Vault</h2>
+            <button id="lockVaultBtn">Lock & Exit</button>
+        </div>
+        
+        <div class="vault-grid">
+            <div class="vault-card" onclick="alert('Opening Hidden Apps...')">
+                <div class="icon">📱</div>
+                <h4>Hidden Apps</h4>
+            </div>
+            <div class="vault-card" onclick="alert('Opening Pictures...')">
+                <div class="icon">🖼️</div>
+                <h4>Pictures</h4>
+            </div>
+            <div class="vault-card" onclick="alert('Opening Documents...')">
+                <div class="icon">📄</div>
+                <h4>Documents</h4>
+            </div>
+            <!-- INTRUDER LOGS CARD -->
+            <div class="vault-card" id="openLogsBtn">
+                <div class="icon">⚠️</div>
+                <h4>Intruder Logs</h4>
+            </div>
+        </div>
+
+        <!-- HIDDEN INTRUDER LOG VIEWER MODAL -->
+        <div id="intruderLogModal" class="modal hidden">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Captured Intruder Files</h3>
+                    <button id="closeLogsBtn">&times;</button>
+                </div>
+                <div id="logsContainer" class="logs-container">
+                    <p class="empty-log-text">No intrusion attempts recorded.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
